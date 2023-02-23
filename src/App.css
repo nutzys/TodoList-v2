@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.bigContainer{
+    min-width: 400px;
+}
+
+.editContainer {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.inputContainers {
+    width: 100%;
+    margin: 10px 0;
+    height: 20px;
+    border: none;
+    border-left: 4px solid rgb(132, 1, 132);
+}
+
+.btn {
+    background-color: #9775fa;
+    border: none;
+    border-radius: 150px;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #7950f2;
+}
