@@ -40,7 +40,7 @@ const TodoItem: React.FC<Props> = (props) => {
             {!props.isDone && (
                 <div className="actionContainer">
                     <button className="btn" onClick={() => props.deleteTodo(props.id)} disabled={props.editing}>Delete</button>
-                    <button className="btn" onClick={() => props.handleDone(props.id)}>Done</button>
+                    <button className="btn" onClick={() => props.handleDone(props.id)} disabled={props.editing}>Done</button>
                     <button className="btn" onClick={() => props.editTodo(props.id)}>Edit</button>
                 </div>
             )}
