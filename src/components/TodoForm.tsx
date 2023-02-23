@@ -4,6 +4,7 @@ import './TodoForm.css';
 const TodoForm: React.FC<{onSave: any}> = (props) => {
     const [id, setId] = useState<number>(1);
     const [date, setDate] = useState<string>('');
+    const [time, setTime] = useState<string>('');
     const [title, setTitle] = useState<string>('');
     const [desc, setDesc] = useState<string>('');
     const [isValid, setIsValid] = useState<boolean>(false);
@@ -16,7 +17,9 @@ const TodoForm: React.FC<{onSave: any}> = (props) => {
     const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const currentDate = new Date().getTime();
-        const targetDate = new Date(date).getTime();
+        const convertedTime = `${date}T${time}:00.000Z`;
+        const targetDate = new Date(convertedTime).getTime();
+        console.log(targetDate);
         let missedTime =  currentDate - targetDate;
         const data = {
             id: id,
@@ -24,6 +27,7 @@ const TodoForm: React.FC<{onSave: any}> = (props) => {
             description: desc,
             isDone: false,
             date: date,
+            time: time,
             isDelayed: targetDate < currentDate ? true : false,
             missedTime: missedTime
         }
@@ -48,6 +52,7 @@ const TodoForm: React.FC<{onSave: any}> = (props) => {
             <label htmlFor="desc">Description</label>
             <textarea name="desc" onChange={(e) => setDesc(e.target.value)} className="inputField" defaultValue={desc}></textarea>
             <input type="date" name="date" onChange={(e) => setDate(e.target.value)} className="inputField"/>
+            <input type="time" name="time" onChange={(e) => setTime(e.target.value)}/>
             <button disabled={!isValid} className="btn">Add</button>
         </form>
         <div className="bottomAction">

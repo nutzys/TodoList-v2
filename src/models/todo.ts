@@ -4,6 +4,7 @@ export interface Todo {
     description: string,
     isDone: boolean,
     date: Date,
+    time: Date,
     isDelayed: boolean,
     missedTime: number
 }

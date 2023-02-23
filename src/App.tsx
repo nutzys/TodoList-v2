@@ -43,7 +43,7 @@ function App () {
     <Card>
       <div className="bigContainer">
         <TodoForm onSave={getData}/>
-        <TodoList items={todo} deleteTodo={deleteTodo} handleDone={handleDone} editTodo={editTodo}/>
+        <TodoList items={todo} deleteTodo={deleteTodo} handleDone={handleDone} editTodo={editTodo} editing={editing}/>
         {editing && (
           <form onSubmit={editFormHandler} className="editContainer">
             <label htmlFor="editTitle">Title</label>

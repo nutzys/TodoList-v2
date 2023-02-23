@@ -9,8 +9,10 @@ interface Props{
     description: string,
     isDone: boolean,
     date: Date,
+    time: Date,
     isDelayed: boolean,
     missedTime: number,
+    editing: boolean,
     deleteTodo: (id: number) => void,
     handleDone: (id: number) => void,
     editTodo: (id: number) => void,
@@ -34,10 +36,10 @@ const TodoItem: React.FC<Props> = (props) => {
             )}
             <h1 style={props.isDelayed && !props.isDone ? {color: '#c92a2a'} : {color: '#212529'}}>{props.title}</h1>
             <p>{props.description}</p>
-            <p style={{ fontSize: '10px', color: '#868e96' }}>Deadline: {props.date.toString()}</p>
+            <p style={{ fontSize: '10px', color: '#868e96' }}>Deadline: {props.date.toString()} / {props.time.toString()}</p>
             {!props.isDone && (
                 <div className="actionContainer">
-                    <button className="btn" onClick={() => props.deleteTodo(props.id)}>Delete</button>
+                    <button className="btn" onClick={() => props.deleteTodo(props.id)} disabled={props.editing}>Delete</button>
                     <button className="btn" onClick={() => props.handleDone(props.id)}>Done</button>
                     <button className="btn" onClick={() => props.editTodo(props.id)}>Edit</button>
                 </div>

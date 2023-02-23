@@ -7,6 +7,7 @@ interface Props{
   deleteTodo: (id: number) => void,
   handleDone: (id: number) => void,
   editTodo: (id: number) => void,
+  editing: boolean,
 }
 
 const TodoList: React.FC<Props> = (props) => {
@@ -23,12 +24,14 @@ const TodoList: React.FC<Props> = (props) => {
                 id={item.id} 
                 title={item.title}
                 date={item.date}
+                time={item.time}
                 description={item.description} 
                 missedTime={item.missedTime}
                 isDone={item.isDone} 
                 isDelayed={item.isDelayed}
                 deleteTodo={props.deleteTodo} 
                 editTodo={props.editTodo} 
+                editing={props.editing}
                 handleDone={props.handleDone}
               />))}
         </ul>
