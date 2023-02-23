@@ -3,8 +3,8 @@ export interface Todo {
     title: string,
     description: string,
     isDone: boolean,
-    date: Date,
-    time: Date,
+    date: string,
+    time: string,
     isDelayed: boolean,
     missedTime: number
 }

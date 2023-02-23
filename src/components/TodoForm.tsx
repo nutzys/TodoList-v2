@@ -51,7 +51,7 @@ const TodoForm: React.FC<{onSave: any}> = (props) => {
             <label htmlFor="desc">Description</label>
             <textarea name="desc" onChange={(e) => setDesc(e.target.value)} className="inputField" defaultValue={desc}></textarea>
             <input type="date" name="date" onChange={(e) => setDate(e.target.value)} className="inputField"/>
-            <input type="time" name="time" onChange={(e) => setTime(e.target.value)}/>
+            <input type="time" name="time" onChange={(e) => setTime(e.target.value)} className="inputField"/>
             <button disabled={!isValid} className="btn">Add</button>
         </form>
         <div className="bottomAction">
