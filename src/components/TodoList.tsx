@@ -10,11 +10,15 @@ interface Props{
 }
 
 const TodoList: React.FC<Props> = (props) => {
-  const sortedTasks = props.items.sort((a, b) => a.isDelayed === b.isDelayed ? 0 : a.isDelayed ? -1 : 1);
+  
+  const delayed = props.items.filter(item => item.isDelayed === true);
+  const notDelayed = props.items.filter(item => item.isDelayed === false);
+  const sorted = [...delayed.sort((a, b) => b.missedTime - a.missedTime), ...notDelayed];
+  
   return (
     <div>
          <ul>
-            {sortedTasks.map(item => (
+            {sorted.map(item => (
               <TodoItem 
                 id={item.id} 
                 title={item.title}
