@@ -19,7 +19,6 @@ const TodoForm: React.FC<{onSave: any}> = (props) => {
         const currentDate = new Date().getTime();
         const convertedTime = `${date}T${time}:00.000Z`;
         const targetDate = new Date(convertedTime).getTime();
-        console.log(targetDate);
         let missedTime =  currentDate - targetDate;
         const data = {
             id: id,
